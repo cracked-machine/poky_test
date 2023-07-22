@@ -1,0 +1,22 @@
+{
+
+    // check for newest tags from actions at https://github.com/cracked-machine/embedded_linux_dockerfiles/actions
+    // To pull the new image, you must rebuild the devcontainer *** without cache ***
+    "image": "ghcr.io/cracked-machine/yocto_core:ubuntu2204",
+    "name": "yocto_core:ubuntu2204",
+    "runArgs": [
+        "-hyocto_core:ubuntu2204",
+        "-P"    // forward all ports
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "eugenwiens.bitbake",
+                "augustocdias.tasks-shell-input",
+                "ms-python.python"
+            ]
+        }
+    },
+    "privileged": true,
+    "securityOpt": ["seccomp=unconfined"]
+}
