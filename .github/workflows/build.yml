@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-custom-dts:
+    runs-on: [self-hosted, linux]
+    defaults:
+      run:
+        shell: bash
+
+    container:
+      image: 'ghcr.io/cracked-machine/yocto_core:ubuntu2204'
+    steps:
+        # only v1 works within a self-hosted containerized actions-runner :(
+      - name: Checkout repository
+        uses: actions/checkout@v1
+        with:
+          submodules: 'true'
+
+      - name: print env
+        run: env
+    
+      - name: build linux 
+        run: |
+          cd poky
+          source ./oe-init-build-env
+          bitbake core-image-minimal
+          bitbake core-image-minimal -c populate_sdk_ext
+
+     
+          
