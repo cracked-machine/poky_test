@@ -26,6 +26,7 @@ jobs:
     
       - name: build linux 
         run: |
+          git clone https://github.com/yoctoproject/poky.git -b honister
           cd poky
           source ./oe-init-build-env
           bitbake core-image-minimal
