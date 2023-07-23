@@ -26,6 +26,7 @@ jobs:
     
       - name: build linux 
         run: |
+          set -x
           git clone https://github.com/yoctoproject/poky.git -b honister
           cd poky
           source ./oe-init-build-env
