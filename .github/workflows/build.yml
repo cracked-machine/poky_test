@@ -29,6 +29,8 @@ jobs:
           git clone https://github.com/yoctoproject/poky.git -b honister
           cd poky
           source ./oe-init-build-env
+          echo "SDK_INCLUDE_NATIVESDK = 1" >> conf/local.conf
+          echo "SDK_INCLUDE_PKGDATA = 1" >> conf/local.conf
           bitbake core-image-minimal
           bitbake core-image-minimal -c populate_sdk_ext
 
