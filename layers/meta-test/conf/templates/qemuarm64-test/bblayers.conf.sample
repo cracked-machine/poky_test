@@ -1,0 +1,13 @@
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  /workspaces/poky_test/layers/meta-test \
+  /workspaces/poky_test/layers/poky/meta \
+  /workspaces/poky_test/layers/poky/meta-poky \
+  /workspaces/poky_test/layers/poky/meta-yocto-bsp \
+  "

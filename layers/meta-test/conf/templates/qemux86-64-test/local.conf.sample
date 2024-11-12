@@ -1,0 +1,7 @@
+MACHINE = "qemux86-64"
+DISTRO = "poky"
+
+EXTRA_IMAGE_FEATURES += " debug-tweaks "
+
+# install both libs and header files
+IMAGE_INSTALL:append = " divsufsort-dev "

@@ -1,0 +1,59 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "options": {
+        "env": {
+            "ROOTDIR": "/workspaces/poky_test",
+            "OUTDIR": "/workspaces/poky_test/build",
+            "POKYDIR": "/workspaces/poky_test/layers/poky",
+            "TEMPLATEDIR": "/workspaces/poky_test/layers/meta-test/conf/templates",
+            "DEFAULTIMAGERECIPE": "core-image-minimal"
+
+        }
+    },    
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "build",
+            "command": [
+                "cd ${POKYDIR}",
+                "&& TEMPLATECONF=\"${TEMPLATEDIR}/${input:machine}-test\" . ${POKYDIR}/oe-init-build-env ${OUTDIR}/${input:machine}-test",
+                "&& bitbake ${DEFAULTIMAGERECIPE}",
+                "&& bash"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "term",
+            "command": [
+                "cd ${POKYDIR}",
+                "&& TEMPLATECONF=\"${TEMPLATEDIR}/${input:machine}-test\" . ${POKYDIR}/oe-init-build-env ${OUTDIR}/${input:machine}-test",
+                "&& bash"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "qemu",
+            "command": [
+                "cd ${POKYDIR}",
+                "&& TEMPLATECONF=\"${TEMPLATEDIR}/${input:machine}-test\" . ${POKYDIR}/oe-init-build-env ${OUTDIR}/${input:machine}-test",
+                "&& runqemu q${input:machine} nographic"
+            ],
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "machine",
+            "description": "Pick a machine arch",
+            "type": "pickString",
+            "options": [
+                "qemuarm64",
+                "qemux86-64"
+            ]
+        }
+    ]
+  }

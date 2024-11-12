@@ -5,7 +5,8 @@
     "image": "ghcr.io/cracked-machine/yocto_core:ubuntu2204",
     "name": "yocto_core:ubuntu2204",
     "runArgs": [
-        "-hyocto_core:ubuntu2204",
+        "--network=host",
+        "--privileged",
         "-P"    // forward all ports
     ],
     "customizations": {
