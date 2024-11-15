@@ -1,4 +1,4 @@
-MACHINE = "qemux86-64"
+MACHINE = "extend-qemux86-64"
 DISTRO = "poky"
 
 EXTRA_IMAGE_FEATURES += " debug-tweaks "

@@ -18,9 +18,8 @@
             "label": "build",
             "command": [
                 "cd ${POKYDIR}",
-                "&& TEMPLATECONF=\"${TEMPLATEDIR}/${input:machine}-test\" . ${POKYDIR}/oe-init-build-env ${OUTDIR}/${input:machine}-test",
-                "&& bitbake ${DEFAULTIMAGERECIPE}",
-                "&& bash"
+                "&& TEMPLATECONF=\"${TEMPLATEDIR}/extend-${input:machine}\" . ${POKYDIR}/oe-init-build-env ${OUTDIR}/extend-${input:machine}",
+                "&& bitbake ${DEFAULTIMAGERECIPE}"
             ],
             "problemMatcher": []
         },
@@ -29,7 +28,7 @@
             "label": "term",
             "command": [
                 "cd ${POKYDIR}",
-                "&& TEMPLATECONF=\"${TEMPLATEDIR}/${input:machine}-test\" . ${POKYDIR}/oe-init-build-env ${OUTDIR}/${input:machine}-test",
+                "&& TEMPLATECONF=\"${TEMPLATEDIR}/extend-${input:machine}\" . ${POKYDIR}/oe-init-build-env ${OUTDIR}/extend-${input:machine}",
                 "&& bash"
             ],
             "problemMatcher": []
@@ -39,8 +38,8 @@
             "label": "qemu",
             "command": [
                 "cd ${POKYDIR}",
-                "&& TEMPLATECONF=\"${TEMPLATEDIR}/${input:machine}-test\" . ${POKYDIR}/oe-init-build-env ${OUTDIR}/${input:machine}-test",
-                "&& runqemu q${input:machine} nographic"
+                "&& TEMPLATECONF=\"${TEMPLATEDIR}/extend-${input:machine}\" . ${POKYDIR}/oe-init-build-env ${OUTDIR}/extend-${input:machine}",
+                "&& runqemu extend-${input:machine} nographic"
             ],
             "problemMatcher": []
         }
