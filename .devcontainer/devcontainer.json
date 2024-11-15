@@ -3,7 +3,7 @@
     // check for newest tags from actions at https://github.com/cracked-machine/embedded_linux_dockerfiles/actions
     // To pull the new image, you must rebuild the devcontainer *** without cache ***
     // "image": "ghcr.io/cracked-machine/yocto_core:ubuntu2204",
-    "build": { "dockerfile": "yocto_docker/dockerfiles/yocto_core/Dockerfile" },
+    "build": { "dockerfile": "Dockerfile" },
     "name": "yocto_core:ubuntu2204",
     "runArgs": [
         "--network=host",
