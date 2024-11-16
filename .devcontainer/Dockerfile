@@ -50,7 +50,8 @@ RUN apt update -y && apt install -y \
 RUN apt update -y && apt install -y \
     u-boot-tools \
     device-tree-compiler \
-    iproute2
+    iproute2 \
+    tmux
 
 #prevents ctag errors when using microhobby.linuxkerneldev extension
 RUN apt update -y && \
