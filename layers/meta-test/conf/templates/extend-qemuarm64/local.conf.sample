@@ -1,0 +1,4 @@
+MACHINE = "extend-qemuarm64"
+DISTRO = "poky"
+
+EXTRA_IMAGE_FEATURES += " debug-tweaks "
